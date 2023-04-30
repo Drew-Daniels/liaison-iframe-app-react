@@ -8,9 +8,9 @@ function App() {
 
   const { callParentMethod } = useChild({
     parentOrigin: 'http://localhost:3003',
-    handlers: {
+    methods: {
       logout: () => setLogoutRequests(prevNum => prevNum + 1),
-      saveToken: ({ args: { token } }) => {
+      saveToken: ({ methodArgs: { token } }) => {
         setTokens(prevTokens => [...prevTokens, token]);
       },
     }
@@ -36,13 +36,13 @@ function App() {
 
   function initiateParentLogout() {
     callParentMethod({
-      functionName: 'logout',
+      methodName: 'logout',
     })
   }
 
   function requestTokenFromParent() {
     callParentMethod({
-      functionName: 'sendToken',
+      methodName: 'sendToken',
     })
   }
 
