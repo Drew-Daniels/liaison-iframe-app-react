@@ -1,30 +1,20 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css'
-import { Child, IChild } from 'post-punk';
+import { useChild } from 'post-punk';
 
 function App() {
   const [logoutRequests, setLogoutRequests] = useState(0);
   const [tokens, setTokens] = useState<Array<string>>([]);
-  const childRef = useRef<IChild | null>(null);
 
-  useEffect(() => {
-    childRef.current = Child({
-      parentOrigin: 'http://localhost:3003',
-      handlers: {
-        logout: () => setLogoutRequests(prevNum => prevNum + 1),
-        saveToken: (token: string) => {
-          setTokens(prevTokens => [...prevTokens, token]);
-        },
-      }
-    });
-    childRef.current.init();
-    return () => {
-      if (childRef.current) {
-        childRef.current.destroy();
-        childRef.current = null
-      }
-    };
-  }, []);
+  const { callParentMethod } = useChild({
+    parentOrigin: 'http://localhost:3003',
+    handlers: {
+      logout: () => setLogoutRequests(prevNum => prevNum + 1),
+      saveToken: ({ args: { token } }) => {
+        setTokens(prevTokens => [...prevTokens, token]);
+      },
+    }
+  })
 
   return (
     <>
@@ -45,13 +35,13 @@ function App() {
   )
 
   function initiateParentLogout() {
-    childRef.current?.callParentMethod({
+    callParentMethod({
       functionName: 'logout',
     })
   }
 
   function requestTokenFromParent() {
-    childRef.current?.callParentMethod({
+    callParentMethod({
       functionName: 'sendToken',
     })
   }
