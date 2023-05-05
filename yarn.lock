@@ -14,6 +14,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@drew-daniels/liaison-core@npm:^0.0.7":
+  version: 0.0.7
+  resolution: "@drew-daniels/liaison-core@npm:0.0.7"
+  checksum: a9a9420d35f68e3a6eb456bd3d5954e1e235b65b1c36c97ba5c5c1031e05cb8b591fce10c7d8399e35a0fc026f93944885da67f536d0e86a65cfe9d3d3f6f63a
+  languageName: node
+  linkType: hard
+
+"@drew-daniels/liaison-react-sdk@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@drew-daniels/liaison-react-sdk@npm:0.0.1"
+  dependencies:
+    "@drew-daniels/liaison-core": ^0.0.7
+  checksum: c296a5fafcbf3a01007555421812085d4c579ea88cc6821afc682b1d69b32cf6d7ab3bcf9567552a5eb1e69fbc5c418e5bd99a4d8a1c7c16364f85423584b2a5
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-arm64@npm:0.17.18"
@@ -1045,6 +1061,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "child-app@workspace:."
   dependencies:
+    "@drew-daniels/liaison-react-sdk": ^0.0.1
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
     "@typescript-eslint/eslint-plugin": ^5.57.1
@@ -1055,7 +1072,6 @@ __metadata:
     eslint: ^8.38.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.3.4
-    post-punk: ^0.1.15
     react: ^18.2.0
     react-dom: ^18.2.0
     typescript: ^5.0.2
@@ -2481,15 +2497,6 @@ __metadata:
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
   languageName: node
   linkType: hard
-
-"post-punk@portal:/Users/drew/projects/post-punk::locator=child-app%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "post-punk@portal:/Users/drew/projects/post-punk::locator=child-app%40workspace%3A."
-  dependencies:
-    "@yarnpkg/pnpify": ^4.0.0-rc.42
-    "@yarnpkg/sdks": ^3.0.0-rc.42
-  languageName: node
-  linkType: soft
 
 "postcss@npm:^8.4.23":
   version: 8.4.23

@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import './App.css'
-import { useChild } from 'post-punk';
+import { useChild } from '@drew-daniels/liaison-react-sdk';
 
 function App() {
   const [logoutRequests, setLogoutRequests] = useState(0);
   const [tokens, setTokens] = useState<Array<string>>([]);
 
-  const { callParentMethod } = useChild({
+  const { callParentEffect } = useChild({
     parentOrigin: 'http://localhost:3003',
-    methods: {
+    effects: {
       logout: () => setLogoutRequests(prevNum => prevNum + 1),
-      saveToken: ({ methodArgs: { token } }) => {
+      saveToken: ({ args: { token } }) => {
         setTokens(prevTokens => [...prevTokens, token]);
       },
     }
@@ -35,14 +35,14 @@ function App() {
   )
 
   function initiateParentLogout() {
-    callParentMethod({
-      methodName: 'logout',
+    callParentEffect({
+      name: 'logout',
     })
   }
 
   function requestTokenFromParent() {
-    callParentMethod({
-      methodName: 'sendToken',
+    callParentEffect({
+      name: 'sendToken',
     })
   }
 
