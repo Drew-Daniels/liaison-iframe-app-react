@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import './App.css'
-import { useChild } from '@drew-daniels/liaison-react-sdk';
+import { useIFrame } from 'liaison-react';
 
 function App() {
   const [logoutRequests, setLogoutRequests] = useState(0);
   const [tokens, setTokens] = useState<Array<string>>([]);
 
-  const { callParentEffect } = useChild({
+  const { callParentEffect } = useIFrame({
     parentOrigin: 'http://localhost:3003',
     effects: {
       logout: () => setLogoutRequests(prevNum => prevNum + 1),

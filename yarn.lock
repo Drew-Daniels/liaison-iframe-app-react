@@ -14,22 +14,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@drew-daniels/liaison-core@npm:^0.0.7":
-  version: 0.0.7
-  resolution: "@drew-daniels/liaison-core@npm:0.0.7"
-  checksum: a9a9420d35f68e3a6eb456bd3d5954e1e235b65b1c36c97ba5c5c1031e05cb8b591fce10c7d8399e35a0fc026f93944885da67f536d0e86a65cfe9d3d3f6f63a
-  languageName: node
-  linkType: hard
-
-"@drew-daniels/liaison-react-sdk@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "@drew-daniels/liaison-react-sdk@npm:0.0.1"
-  dependencies:
-    "@drew-daniels/liaison-core": ^0.0.7
-  checksum: c296a5fafcbf3a01007555421812085d4c579ea88cc6821afc682b1d69b32cf6d7ab3bcf9567552a5eb1e69fbc5c418e5bd99a4d8a1c7c16364f85423584b2a5
-  languageName: node
-  linkType: hard
-
 "@esbuild/android-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-arm64@npm:0.17.18"
@@ -1084,7 +1068,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "child-app@workspace:."
   dependencies:
-    "@drew-daniels/liaison-react-sdk": ^0.0.1
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
     "@typescript-eslint/eslint-plugin": ^5.57.1
@@ -1096,6 +1079,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.3.4
     gh-pages: ^5.0.0
+    liaison-react: ^0.0.4
     react: ^18.2.0
     react-dom: ^18.2.0
     typescript: ^5.0.2
@@ -2206,6 +2190,25 @@ __metadata:
     prelude-ls: ^1.2.1
     type-check: ~0.4.0
   checksum: 12c5021c859bd0f5248561bf139121f0358285ec545ebf48bb3d346820d5c61a4309535c7f387ed7d84361cf821e124ce346c6b7cef8ee09a67c1473b46d0fc4
+  languageName: node
+  linkType: hard
+
+"liaison-core@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "liaison-core@npm:0.0.4"
+  checksum: 3559951121cc9756c54f5183e9f49a0fb381ca462aa4e9dc66fafb5cc6ceeb18d0a1eb61d53821a0e9c2c8379911242f7f962384080ef802837711789e8326d0
+  languageName: node
+  linkType: hard
+
+"liaison-react@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "liaison-react@npm:0.0.4"
+  dependencies:
+    liaison-core: ^0.0.4
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.18.0"
+  checksum: 5b48cf3c0715d57e4a02761f5449c18bfb4cd4bf69f851603535f28b773fbf16c3c1013b8d46c429872310be390cb3e80c08f4776ab7c0a7eed80db87ef46cfd
   languageName: node
   linkType: hard
 
