@@ -20,8 +20,9 @@ function App() {
     <>
       <h1>Child Window</h1>
       <div className="buttons">
-        <button onClick={initiateParentLogout}>Initiate <em>Parent</em> Logout Process</button>
-        <button onClick={requestTokenFromParent}>Request Token from Parent</button>
+        <p className="buttons-header">Request to run events within the Parent window!</p>
+        <button onClick={initiateParentLogout} className="btn">Initiate <em>Parent</em> Logout Process</button>
+        <button onClick={requestTokenFromParent} className="btn">Request Token from Parent</button>
       </div>
       <div>
         <h2>Logout Requests:</h2>
