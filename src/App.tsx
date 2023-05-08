@@ -13,6 +13,9 @@ function App() {
       saveToken: ({ args: { token } }) => {
         setTokens(prevTokens => [...prevTokens, token]);
       },
+      saveTokenAsync: ({ args: { token } }) => {
+        setTokens(prevTokens => [...prevTokens, token]);
+      },
     }
   })
 
@@ -23,13 +26,14 @@ function App() {
         <p className="buttons-header">Request to run events within the Parent window!</p>
         <button onClick={initiateParentLogout} className="btn">Initiate <em>Parent</em> Logout Process</button>
         <button onClick={requestTokenFromParent} className="btn">Request Token from Parent</button>
+        <button onClick={requestTokenFromParentAsync} className="btn">Request Token from Parent</button>
       </div>
       <div>
         <h2>Logout Requests:</h2>
         <p>{logoutRequests}</p>
         <h2>Tokens:</h2>
         <ul>
-          {tokens.map(token => <li>Token: {token}</li>)}
+          {tokens.map((token) => <li key={token}>Token: {token}</li>)}
         </ul>
       </div>
     </>
@@ -44,6 +48,12 @@ function App() {
   function requestTokenFromParent() {
     callParentEffect({
       name: 'sendToken',
+    })
+  }
+
+  function requestTokenFromParentAsync() {
+    callParentEffect({
+      name: 'sendTokenAsync',
     })
   }
 
