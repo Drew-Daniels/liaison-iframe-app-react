@@ -25,8 +25,8 @@ function App() {
       <div className="buttons">
         <p className="buttons-header">Request to run events within the Parent window!</p>
         <button onClick={initiateParentLogout} className="btn">Initiate <em>Parent</em> Logout Process</button>
-        <button onClick={requestTokenFromParent} className="btn">Request Token from Parent</button>
-        <button onClick={requestTokenFromParentAsync} className="btn">Request Token from Parent</button>
+        <button onClick={requestTokenFromParent} className="btn">Request Token from Parent (Get Synchronously)</button>
+        <button onClick={requestTokenFromParentAsync} className="btn">Request Token from Parent (Get Asynchronously)</button>
       </div>
       <div>
         <h2>Logout Requests:</h2>
