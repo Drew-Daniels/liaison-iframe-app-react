@@ -1079,7 +1079,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.3.4
     gh-pages: ^5.0.0
-    liaison-react: ^0.0.10
+    liaison-react: ^0.0.14
     react: ^18.2.0
     react-dom: ^18.2.0
     typescript: ^5.0.2
@@ -2193,22 +2193,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"liaison-core@npm:^0.0.13":
-  version: 0.0.13
-  resolution: "liaison-core@npm:0.0.13"
-  checksum: 93139ce43ebec03282906e2830cec1d25336723101cb810f9947fc192bc69a1ac037591a4705a71ab43ec5c15ffc50b6d5553aad2cca2762fa00b0f43c24f2d3
+"liaison-core@npm:^0.0.17":
+  version: 0.0.17
+  resolution: "liaison-core@npm:0.0.17"
+  checksum: 0a66806c3a25f8b54d0c578e0097007afa9ed0471bfe46b08397460bdf1bcc6a4d172ec7c5b2b79862d16e3d4d62847b1d7b303239f8b9c6ed305e04b13d673d
   languageName: node
   linkType: hard
 
-"liaison-react@npm:^0.0.10":
-  version: 0.0.10
-  resolution: "liaison-react@npm:0.0.10"
+"liaison-react@npm:^0.0.14":
+  version: 0.0.14
+  resolution: "liaison-react@npm:0.0.14"
   dependencies:
-    liaison-core: ^0.0.13
+    liaison-core: ^0.0.17
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.18.0"
-  checksum: 6c3f749478653707ad9c6cba47896222e7e0a5a5272885317458001ef6462d0c7ba5e76a152bce19cf58405d824406d505db194e5848b4708b05536f9fbc04b1
+  checksum: e109dd7d4f49ad0ad6a9efb21640200c6c492055c855f17cc6c8a45191a045f95be1645c8802de312e57cbdf53ff6f3571700ab828cfe0241ea32e1d98dad4cf
   languageName: node
   linkType: hard
 
