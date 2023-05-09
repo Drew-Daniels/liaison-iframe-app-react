@@ -4,17 +4,18 @@ import './App.css'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [tokens, setTokens] = useState<Array<string>>([]);
 
   const { callParentEffect } = useIFrame({
     parentOrigin: 'http://localhost:3003',
     effects: {
       onLogoutRequested: ({ callParentEffect }) => {
-        localStorage.remove('token');
-        callParentEffect({ name: 'onLogoutCompleted' });
+        localStorage.removeItem('token');
+        setLoggedIn(false);
+        callParentEffect({ name: 'onLogoutComplete' });
       },
       onTokenReceived: ({ args: { token } }) => {
-        setTokens(prevTokens => [...prevTokens, token]);
+        localStorage.setItem('token', token);
+        setLoggedIn(true);
       },
     }
   })
@@ -24,8 +25,8 @@ function App() {
       <h1>Child Window</h1>
       <div className="buttons">
         <p className="buttons-header">Request to run events within the Parent window!</p>
-        <button onClick={requestTokenFromParent} className="btn">Request Token from Parent (Get Synchronously)</button>
-        <button onClick={requestTokenFromParentAsync} className="btn">Request Token from Parent (Get Asynchronously)</button>
+        <button onClick={requestTokenFromParent} className="btn">REQUEST Token from Parent (Get Synchronously)</button>
+        <button onClick={requestTokenFromParentAsync} className="btn">REQUEST Token from Parent (Get Asynchronously)</button>
       </div>
       <div>
         {!loggedIn &&
@@ -40,13 +41,13 @@ function App() {
 
   function requestTokenFromParent() {
     callParentEffect({
-      name: 'sendToken',
+      name: 'onSendTokenSync',
     })
   }
 
   function requestTokenFromParentAsync() {
     callParentEffect({
-      name: 'sendTokenAsync',
+      name: 'onSendTokenAsync',
     })
   }
 
